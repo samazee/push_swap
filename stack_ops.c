@@ -12,28 +12,41 @@
 
 #include "push_swap.h"
 
-t_stack	*init_stack(int len)
+static int	allocate_nodes(t_stack *s, int len)
 {
-	t_stack	*s;
 	t_node	**current;
 
-	s = malloc(sizeof(t_stack));
-	if (!s)
-		return (NULL);
-	s->len_a = 0;
-	s->len_b = 0;
 	current = &(s->a);
 	while (s->len_a < len)
 	{
 		*current = malloc(sizeof(t_node));
 		if (!*current)
-			return (NULL);
+			return (0);
 		(*current)->index = -1;
+		(*current)->next = NULL;
 		current = &((*current)->next);
 		s->len_a++;
 	}
 	*current = NULL;
+	return (1);
+}
+
+t_stack	*init_stack(int len)
+{
+	t_stack	*s;
+
+	s = malloc(sizeof(t_stack));
+	if (!s)
+		return (NULL);
+	s->a = NULL;
 	s->b = NULL;
+	s->len_a = 0;
+	s->len_b = 0;
+	if (!allocate_nodes(s, len))
+	{
+		free_stack(s);
+		return (NULL);
+	}
 	return (s);
 }
 

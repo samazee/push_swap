@@ -6,7 +6,7 @@
 /*   By: azgor <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 20:02:54 by azgor             #+#    #+#             */
-/*   Updated: 2026/04/07 20:02:56 by azgor            ###   ########.fr       */
+/*   Updated: 2026/04/11 20:44:19 by azgor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,16 @@ t_node	*get_bottom_a(t_stack *stack);
 t_node	*get_bottom_b(t_stack *stack);
 
 t_stack	*parse_stack(int argc, char **argv);
+t_stack	*parse_string(char *str);
 void	println(char *str);
 int		ft_strlen(char *str);
 long	ft_atol(const char *str);
+char	**ft_split(char	*str);
 int		is_overflow(const char *str);
 int		is_number(char *str);
+int		is_whitespace(char c);
+int		is_valid_arglist(char *str);
+int		word_count(char	*s);
 int		validate(int argc, char **argv);
 void	radix_sort(t_stack *stack);
 

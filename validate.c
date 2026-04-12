@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azgor <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/07 20:04:34 by azgor             #+#    #+#             */
-/*   Updated: 2026/04/07 20:04:34 by azgor            ###   ########.fr       */
+/*   Created: 2026/04/11 21:02:10 by azgor             #+#    #+#             */
+/*   Updated: 2026/04/11 21:13:12 by azgor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	validate(int argc, char **argv)
 	int	i;
 	int	j;
 
-	if (argc == 1)
+	if (argc == 0)
 		return (0);
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		if (!is_number(argv[i]))

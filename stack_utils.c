@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azgor <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/07 20:03:59 by azgor             #+#    #+#             */
-/*   Updated: 2026/04/07 20:03:59 by azgor            ###   ########.fr       */
+/*   Created: 2026/04/11 21:02:10 by azgor             #+#    #+#             */
+/*   Updated: 2026/04/11 21:13:12 by azgor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,24 @@ void	index_stack(t_stack *stack)
 	}
 }
 
-t_stack	*parse_stack(int argc, char **argv)
+t_stack	*parse_stack(int args_len, char **args)
 {
 	t_stack	*stack;
 	t_node	**current;
 	int		i;
 
-	if (validate(argc, argv))
+	if (validate(args_len, args))
 	{
-		stack = init_stack(argc - 1);
+		stack = init_stack(args_len);
 		if (!stack)
 			return (NULL);
 		current = &(stack->a);
 		i = 0;
 		while (*current)
 		{
-			(*current)->value = ft_atol(argv[i++ + 1]);
+			(*current)->value = ft_atol(args[i]);
 			current = &((*current)->next);
+			i++;
 		}
 		index_stack(stack);
 		return (stack);
