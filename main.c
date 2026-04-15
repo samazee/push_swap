@@ -47,6 +47,8 @@ char	*join_args(int argc, char **argv)
 	int		j;
 	int		len;
 
+	if (has_empty_arg(argc, argv))
+		return (NULL);
 	str = malloc(get_total_len(argc, argv) * sizeof(char));
 	if (!str)
 		return (NULL);

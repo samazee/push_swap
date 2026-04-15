@@ -90,7 +90,7 @@ static void	sort_small(t_stack *stack)
 
 void	push_swap(t_stack *stack)
 {
-	if (stack->len_a <= 1)
+	if (stack->len_a <= 1 || is_sorted(stack))
 		return ;
 	sort_small(stack);
 }

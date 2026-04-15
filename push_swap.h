@@ -64,6 +64,7 @@ int		rrr(t_stack *stack);
 t_node	*get_bottom_a(t_stack *stack);
 t_node	*get_bottom_b(t_stack *stack);
 
+int		is_sorted(t_stack *stack);
 t_stack	*parse_stack(int argc, char **argv);
 t_stack	*parse_string(char *str);
 void	println(char *str);
@@ -75,6 +76,7 @@ int		is_number(char *str);
 int		is_whitespace(char c);
 int		is_valid_arglist(char *str);
 int		word_count(char	*s);
+int		has_empty_arg(int argc, char **argv);
 int		validate(int argc, char **argv);
 void	radix_sort(t_stack *stack);
 

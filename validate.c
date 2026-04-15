@@ -12,6 +12,30 @@
 
 #include "push_swap.h"
 
+int	has_empty_arg(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	int	has_char;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		has_char = 0;
+		while (argv[i][j])
+		{
+			if (!is_whitespace(argv[i][j]))
+				has_char = 1;
+			j++;
+		}
+		if (!has_char)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	is_number(char *str)
 {
 	int	i;

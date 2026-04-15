@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+int	is_sorted(t_stack *stack)
+{
+	t_node	*curr;
+
+	curr = stack->a;
+	while (curr && curr->next)
+	{
+		if (curr->value > curr->next->value)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
+}
+
 t_node	*get_next_min(t_stack *stack)
 {
 	t_node	*a;
